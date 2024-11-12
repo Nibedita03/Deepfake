@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Oldenburg&family=Inter:wght@400;700&display=swap');
+
+/* Ensure full screen and gradient background */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Full screen blue to black gradient */
+body {
+    background: linear-gradient(to bottom, #0c2d34, #041113); /* Blue to black gradient */
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Header section */
+header {
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    animation: slideIn 1s ease-out; /* Animation when the page loads */
+}
+
+/* Logo and tagline container */
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Logo (PADV) styling in Oldenburg font */
+.logo {
+    font-family: 'Oldenburg', cursive;
+    font-size: 40px;
+    color: #3a8888;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Glowing effect on hover for PADV logo */
+.logo:hover {
+    color: #3a8888;
+    text-shadow: 0 0 8px #3a8888, 0 0 16px #3a8888, 0 0 24px #3a8888;
+}
+
+/* Tagline styling in Inter font */
+.tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #949496;
+    text-decoration: none;
+}
+
+/* Navigation Bar Styling */
+nav {
+    font-family: 'Inter', sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 25px;
+    position: relative;
+}
+
+/* Navigation links */
+nav a {
+    color: #949496;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative; /* Required for positioning the underline */
+    padding-bottom: 5px; /* Space between text and underline */
+    transition: color 0.3s ease;
+}
+
+/* Underline effect */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Adjusted for better positioning */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3a8888; /* Underline color */
+    transition: width 0.3s ease, left 0.3s ease; /* Sliding effect */
+}
+
+/* Hover effect for the navigation links */
+nav a:hover {
+    color: #fff;
+}
+
+nav a:hover::after {
+    width: 100%; /* Expand the underline width */
+    left: 0; /* Move underline to the left */
+}
+
+/* Make pages scrollable */
+.page {
+    height: 100vh;
+    width: 100%;
+    background: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-bottom: 2px solid #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 80px; /* Prevent content from being hidden behind the sticky header */
+}
+
+.page::before {
+    content: "Page " attr(id);
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Animation for the header */
+@keyframes slideIn {
+    from {
+        top: -100px; /* Start from above the viewport */
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
